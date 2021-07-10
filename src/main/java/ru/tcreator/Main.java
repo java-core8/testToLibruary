@@ -16,6 +16,13 @@ public class Main {
             )
     ));
   }
+
+  /**
+   * Перегоняет содержимое файла в массив байт
+   * @param path
+   * @return byte[]
+   * @throws IOException
+   */
   static public byte[] getByteBufferByPath(String path) throws IOException {
     File file = new File(path);
     FileInputStream inputStream = new FileInputStream(file);
@@ -24,6 +31,13 @@ public class Main {
     inputStream.close();
     return byteBuffer;
   }
+
+  /**
+   * Парсит массив байт в список слов
+   * пробелы, переносы строк, запятые и точки пропускает
+   * @param byteArray
+   * @return {@link ArrayList<String>}
+   */
   static public ArrayList<String> parseByteToStringList(byte[] byteArray) {
     ArrayList<String> stringArray = new ArrayList<>();
     StringBuilder tmpStr = new StringBuilder();
@@ -46,6 +60,11 @@ public class Main {
     return stringArray;
   }
 
+  /**
+   * Сортирует список строк по алфавиту и возвращает отсортированный список
+   * @param list {@link ArrayList<String>} список
+   * @return {@link ArrayList<String>} отсортированный список
+   */
   static public ArrayList<String> getSortArrayList(ArrayList<String> list) {
     return list.stream()
             .sorted()
